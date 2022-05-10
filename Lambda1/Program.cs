@@ -4,36 +4,27 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
-        public enum Vehicles { MC, Car, Scooter};
+        public enum Vehicles { Unknown, MC, Car, Scooter, Snowmobile, ElectricBike, Last};
         static void Main(string[] args)
         {
-            List<int> myList = new List<int> { 1, 2, 3, 4, 2, 6, 7, 3, 6, 8, 9 };
-            
-            int SearchVar = 3;
-            int CountVar = 0;
-            myList.ForEach(n =>
-            {
-                if (n == SearchVar)
-                    CountVar++;
-            });
-            Console.WriteLine($"The list has {CountVar} elements of {SearchVar}");
-
             var rnd = new Random();
             List<Vehicles> vehicles = new List<Vehicles>();
             for (int i = 0; i < 100; i++)
             {
-                var v = (Vehicles) rnd.Next((int) Vehicles.MC, (int) Vehicles.Scooter + 1);
+                var v = (Vehicles) rnd.Next((int) Vehicles.Unknown+1, (int) Vehicles.Last);
                 vehicles.Add(v);
             }
 
             //Alternativ 1
-            for (Vehicles _search = Vehicles.MC; _search <= Vehicles.Scooter; _search++)
+            for (Vehicles _search = Vehicles.MC; _search < Vehicles.Last; _search++)
             {
                 int _count = 0;
                 vehicles.ForEach(v => { if (v == _search) _count++; });
                 Console.WriteLine($"{_search,10}: {_count}");
             }
 
+
+            
             
             //Alternativ 2
             int _count1 = 0;
@@ -54,3 +45,5 @@ namespace MyApp // Note: actual namespace depends on the project name.
         }
     }
 }
+//Exercises:
+//
