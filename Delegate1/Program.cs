@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ADOPM3_CodeExercises
+namespace Delegate1
 {
     class Program
     {
