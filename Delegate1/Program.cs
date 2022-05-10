@@ -7,6 +7,7 @@ namespace ADOPM3_CodeExercises
     {
         static void Main(string[] args)
         {
+            #region Exercises 1-3
             int[] numbers = new int[20];
             string[] cities = new string[20];
 
@@ -20,8 +21,10 @@ namespace ADOPM3_CodeExercises
             }
 
             WriteLists(numbers, cities);
+            #endregion
 
-            #region Exercise 4-7
+            #region Exercises 4-7
+            Console.WriteLine("Delegates I Exercises");
             Console.WriteLine($"\n{nameof(numbers)} output by delegate");
             Array.ForEach(numbers, WriteInts);
             Console.WriteLine($"\n{nameof(cities)} output by delegate");
@@ -32,8 +35,24 @@ namespace ADOPM3_CodeExercises
             Console.WriteLine($"\n{nameof(cities)} output by generic delegate");
             Array.ForEach(cities, WriteItem);
             #endregion
+
+            #region Exercises 8-9
+            Console.WriteLine("\nDelegates II Exercises");
+            var evenlist = Array.FindAll(numbers, IsEven);
+            Array.ForEach(evenlist, WriteItem);
+
+            Console.WriteLine();
+            Array.ForEach(Array.FindAll(cities, IsLongName), WriteItem);
+            #endregion
+
+            #region Exercises 10-11
+            Console.WriteLine("\nDelegates III Exercises");
+            Console.WriteLine(Array.Find(numbers, IsLargeNumber));
+            Console.WriteLine(Array.FindLast(cities, IsLongestName));
+            #endregion
         }
 
+        #region Exercises 1-3
         static void WriteLists(int[] _numbers, string[] _cities)
         {
 
@@ -46,8 +65,9 @@ namespace ADOPM3_CodeExercises
                 Console.WriteLine(item);
 
         }
+        #endregion
 
-        #region exercise 4-7
+        #region Exercises 4-7
         static void WriteInts(int myInt)
         {
             Console.WriteLine(myInt);
@@ -61,6 +81,17 @@ namespace ADOPM3_CodeExercises
             Console.WriteLine(item);
         }
         #endregion
+
+        #region Exercises 8-9
+        public static bool IsEven(int item) => item % 2 == 0;
+        public static bool IsLongName(string item) => item.Length > 6;
+        #endregion
+
+        #region Exercises 10-11
+        static bool IsLargeNumber(int item) => item > 500;
+        static bool IsLongestName(string item) => item.Length > 8;
+        #endregion
+
     }
 }
 //Exercises
