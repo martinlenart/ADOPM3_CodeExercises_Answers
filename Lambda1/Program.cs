@@ -15,35 +15,36 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 vehicles.Add(v);
             }
 
-            //Alternativ 1
-            for (Vehicles _search = Vehicles.MC; _search < Vehicles.Last; _search++)
+            //Exercise 1 Alternativ 1
+            Console.WriteLine("Alternative1");
+            for (Vehicles _vehicle = Vehicles.Unknown + 1; _vehicle < Vehicles.Last; _vehicle++)
             {
                 int _count = 0;
-                vehicles.ForEach(v => { if (v == _search) _count++; });
-                Console.WriteLine($"{_search,10}: {_count}");
+                vehicles.ForEach(v => { if (v == _vehicle) _count++; });
+                Console.WriteLine($"{_vehicle,20}: {_count}");
             }
 
 
-            
-            
             //Alternativ 2
+            Console.WriteLine("\nAlternative2");
             int _count1 = 0;
-            List<Action<Vehicles>> actions = new List<Action<Vehicles>>();
-            for (Vehicles _search = Vehicles.MC; _search <= Vehicles.Scooter; _search++)
+            Dictionary<Vehicles, Action<Vehicles>> actions = new Dictionary<Vehicles, Action<Vehicles>>();
+            for (Vehicles _vehicle = Vehicles.Unknown + 1; _vehicle < Vehicles.Last; _vehicle++)
             {
-                var _localSearch = _search; 
-                actions.Add(v => { if (v == _localSearch) _count1++; });
+                var _localSearch = _vehicle; 
+                actions[_vehicle] = (v => { if (v == _localSearch) _count1++; });
             }
 
-            foreach (Action<Vehicles> action in actions)
+            for (Vehicles _vehicle = Vehicles.Unknown + 1; _vehicle < Vehicles.Last; _vehicle++)
             {
                 _count1 = 0;
-                vehicles.ForEach(action); 
-                Console.WriteLine($"{_count1}");
+                vehicles.ForEach(actions[_vehicle]);
+                Console.WriteLine($"{_vehicle,20}: {_count1}");
             }
-           
         }
     }
 }
 //Exercises:
-//
+//1.  Loop over all the Vehicle types in enum Vehicles and in the loop use vehicles.ForEach(),
+//    Lambda and a captured variable to count and present number of vehicles of each type in vehicles.
+//    - example MC: 25 / Car: 50 / ...
