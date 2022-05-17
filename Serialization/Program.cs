@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace Linq_Orders_Customers
+namespace Serialization
 {
     static class LinqExtensions
     {
@@ -42,41 +42,24 @@ namespace Linq_Orders_Customers
                 }
             }
 
-            QueryCustomersWithLinq(CustomerList);
-            QueryOrdersWithLinq(CustomerList, OrderList);
-
-            var balticCustomers = CustomerList.Where(c => c.Country == "Lettland").ToList();
+            var customersLettland = CustomerList.Where(c => c.Country == "Lettland").ToList();
             var xs = new XmlSerializer(typeof(List<Customer>));
-            using (Stream s = File.Create(fname("BalticCustomers.xml")))
-                xs.Serialize(s, balticCustomers);
+            using (Stream s = File.Create(fname("CustomersLettland.xml")))
+                xs.Serialize(s, customersLettland);
+
+            Console.WriteLine($"Customer data written to {fname("CustomersLettland.xml")}");
+
+            var largestOrders = OrderList.Join(CustomerList, o => o.CustomerID, c => c.CustomerID, (o, c) => new OrderCustomer { ord = o, cus = c })
+                .OrderByDescending(oc => oc.ord.Total).Take(10).ToList();
+
+            xs = new XmlSerializer(typeof(List<OrderCustomer>));
+            using (Stream s = File.Create(fname("LargestOrders.xml")))
+                xs.Serialize(s, largestOrders);
+
+            Console.WriteLine($"Order data written to : {fname("LargestOrders.xml")}");
+
         }
 
-        private static void QueryCustomersWithLinq(IEnumerable<Customer> customers)
-        {
-            Console.WriteLine($"Number of customers: {customers.Count()}");
-            var countryList = customers.Select(c => c.Country).Distinct().ToList();
-            foreach (var country in countryList)
-            {
-                Console.WriteLine(country);
-            }
-            Console.WriteLine($"Number of customers in Lettland: {customers.Where(c => c.Country == "Lettland").Count()}");
-
-
-        }
-
-        private static void QueryOrdersWithLinq(IEnumerable<Customer> customers, IEnumerable<Order> orders)
-        {
-            Console.WriteLine($"Number of orders: {orders.Count()}");
-
-          var ordersBaltic = orders.Join(customers, o => o.CustomerID, c => c.CustomerID, (o, c) => new OrderCustomer { ord = o, cus = c })
-                .Where(oc => (oc.cus.Country == "Lettland") && (oc.ord.Value > 1000)).ToList();
-
-            Console.WriteLine($"Number of orders in Lettland: {ordersBaltic.Count()}");
-            
-            var xs = new XmlSerializer(typeof(List<OrderCustomer>));
-            using (Stream s = File.Create(fname("BalticOrders.xml")))
-                xs.Serialize(s, ordersBaltic);
-        }
 
         static string fname(string name)
         {
@@ -88,10 +71,7 @@ namespace Linq_Orders_Customers
     }
 }
 ///Exercises:
-//1.    Antalet kunder, Antalet kunder i Sverige, Äldsta kundens födelsedag, Yngsta kundens födelsedag
-//2.    Använd GroupBy för att lista antalet kunder per land
-//3.    Antalet kunder med ett efternamn som slutar på 'son'
-
-//4.    Antalet ordrar och totalt ordervärde av de 5 största ordrarna
-//5.    Använd Join för att lista kund och ordervärde för de 5 största ordrarna
-//6.    Använd GroupJoin för att lista de 5 största kunderna baserat på ordervärde
+//1.    Serialisera alla kunder i Lettland till en xml fil.
+//2.    Öppna filen i Excel och Word och undersök innehållet.
+//3.    Serialisera kund och orderdata för de 10 största kunderna till en xml fil. Öppna i Excel
+//4.    Serialisera alla kunder i Sverige till en Json fil. Öppna file och titta på innehållet

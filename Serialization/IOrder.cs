@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Linq_Orders_Customers
+namespace Serialization
 {
     public interface IOrder : IEquatable<IOrder>
     {

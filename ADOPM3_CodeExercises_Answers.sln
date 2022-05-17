@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate0", "Delegate0\Dele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda0", "Lambda0\Lambda0.csproj", "{B828C1C8-5D99-4591-884A-36E22C5DE94B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{094B857D-E66B-4B09-9117-114F07F4BD54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{B828C1C8-5D99-4591-884A-36E22C5DE94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B828C1C8-5D99-4591-884A-36E22C5DE94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B828C1C8-5D99-4591-884A-36E22C5DE94B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094B857D-E66B-4B09-9117-114F07F4BD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094B857D-E66B-4B09-9117-114F07F4BD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094B857D-E66B-4B09-9117-114F07F4BD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094B857D-E66B-4B09-9117-114F07F4BD54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
