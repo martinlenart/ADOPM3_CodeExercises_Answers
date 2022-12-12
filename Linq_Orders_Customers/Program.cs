@@ -36,7 +36,7 @@ namespace Linq_Orders_Customers
                 CustomerList.Add(cus);
 
                 //Create a random number of order for the customer. Could be 0
-                for (int o = 0; o < rnd.Next(0, MaxNrOfOrdersPerCustomer+1); o++)
+                for (int o = 0; o < rnd.Next(0, MaxNrOfOrdersPerCustomer + 1); o++)
                 {
                     OrderList.Add(Order.Factory.CreateWithRandomData(cus.CustomerID));
                 }
@@ -44,49 +44,50 @@ namespace Linq_Orders_Customers
 
             QueryCustomersWithLinq(CustomerList);
             QueryOrdersWithLinq(CustomerList, OrderList);
-
-            var balticCustomers = CustomerList.Where(c => c.Country == "Lettland").ToList();
-            var xs = new XmlSerializer(typeof(List<Customer>));
-            using (Stream s = File.Create(fname("BalticCustomers.xml")))
-                xs.Serialize(s, balticCustomers);
         }
 
-        private static void QueryCustomersWithLinq(IEnumerable<Customer> customers)
+        private static void QueryCustomersWithLinq(IEnumerable<ICustomer> customers)
         {
-            Console.WriteLine($"Number of customers: {customers.Count()}");
-            var countryList = customers.Select(c => c.Country).Distinct().ToList();
-            foreach (var country in countryList)
+            Console.WriteLine($"Nr of Customer: {customers.Count()}");
+            Console.WriteLine("\nFirst 5 Customer:");
+            customers.Take(5).Print();
+
+            Console.WriteLine($"\nNumber of Customers in Sweden {customers.Where(cust => cust.Country == "Sverige").Count()}");
+            Console.WriteLine($"\nOldest customer is born {customers.OrderBy(cust => cust.BirthDate).First().BirthDate:d}");
+            Console.WriteLine($"Youngest customer is born {customers.OrderBy(cust => cust.BirthDate).Last().BirthDate:d}");
+
+            Console.WriteLine($"\nNumber of customers per country");
+            var groups = customers.GroupBy(cust => cust.Country);
+            foreach (var item in groups)
             {
-                Console.WriteLine(country);
+                Console.WriteLine($"{item.Key} has {item.Count()} number of customers");
             }
-            Console.WriteLine($"Number of customers in Lettland: {customers.Where(c => c.Country == "Lettland").Count()}");
 
-
+            Console.WriteLine($"\nNumber of customers that ends LastName with 'son': {customers.Where(cust => cust.LastName.EndsWith("son")).Count()}");
         }
 
-        private static void QueryOrdersWithLinq(IEnumerable<Customer> customers, IEnumerable<Order> orders)
+        private static void QueryOrdersWithLinq(IEnumerable<ICustomer> customers, IEnumerable<IOrder> orders)
         {
-            Console.WriteLine($"Number of orders: {orders.Count()}");
+            Console.WriteLine($"\nNr of orders: {orders.Count()}");
+            Console.WriteLine($"Total order value: {orders.Sum(order => order.Total):C2}");
 
-          var ordersBaltic = orders.Join(customers, o => o.CustomerID, c => c.CustomerID, (o, c) => new OrderCustomer { ord = o, cus = c })
-                .Where(oc => (oc.cus.Country == "Lettland") && (oc.ord.Value > 1000)).ToList();
+            Console.WriteLine("\ntop 5 Order list:");
+            orders.OrderByDescending(order => order.Value).Take(5).Print();
 
-            Console.WriteLine($"Number of orders in Lettland: {ordersBaltic.Count()}");
-            
-            var xs = new XmlSerializer(typeof(List<OrderCustomer>));
-            using (Stream s = File.Create(fname("BalticOrders.xml")))
-                xs.Serialize(s, ordersBaltic);
-        }
+            Console.WriteLine("\ntop 5 Orders with customer joined in via Join:");
+            var orderCustomer = orders.Join(customers, o => o.CustomerID, c => c.CustomerID, (o, c) => new { o, c });
+            orderCustomer.OrderByDescending(oc => oc.o.Value).Take(5).Print();
 
-        static string fname(string name)
-        {
-            var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            documentPath = Path.Combine(documentPath, "Nisse");
-            if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
-            return Path.Combine(documentPath, name);
+            Console.WriteLine("\ntop 5 Customers from order value via GroupJoin:");
+            var CustomerOrders = customers.GroupJoin(orders, c => c.CustomerID, o => o.CustomerID, (cust, orders) => new { cust, orders });
+            foreach (var co in CustomerOrders.OrderByDescending(co => co.orders.Sum(o => o.Value)).Take(5))
+            {
+                Console.WriteLine($"Cust: {co.cust.CustomerID}, Ordercount: {co.orders.Count()}, OrderValue: {co.orders.Sum(o => o.Value):C2}");
+            }
         }
     }
 }
+
 ///Exercises:
 //1.    Antalet kunder, Antalet kunder i Sverige, Äldsta kundens födelsedag, Yngsta kundens födelsedag
 //2.    Använd GroupBy för att lista antalet kunder per land
@@ -94,4 +95,5 @@ namespace Linq_Orders_Customers
 
 //4.    Antalet ordrar och totalt ordervärde av de 5 största ordrarna
 //5.    Använd Join för att lista kund och ordervärde för de 5 största ordrarna
+
 //6.    Använd GroupJoin för att lista de 5 största kunderna baserat på ordervärde

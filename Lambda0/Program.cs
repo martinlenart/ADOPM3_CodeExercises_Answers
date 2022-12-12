@@ -23,7 +23,7 @@ namespace Lambda0
             WriteLists(numbers, cities);
             #endregion
 
-            #region Lambda Exercise 1
+            #region Exercise 2
             Console.WriteLine("Delegates I Exercises");
             Console.WriteLine($"\n{nameof(numbers)} output by Lambda");
             Array.ForEach(numbers, myInt => Console.WriteLine(myInt));
@@ -49,10 +49,8 @@ namespace Lambda0
             Console.WriteLine("\nLambda III Exercises");
             Console.WriteLine(Array.Find(numbers, (int item) => item > 500));
             Console.WriteLine(Array.FindLast(cities, (string item) => item.Length > 8));
-            #endregion
 
-            #region Lamda Exercise 2 - 3
-            //Sum is captured by the LE item => sum = sum + item
+             //Sum is captured by the LE item => sum = sum + item
             int sum = 0;
             Array.ForEach(numbers, item => sum = sum + item);
             Console.WriteLine(sum);
@@ -84,13 +82,10 @@ namespace Lambda0
         #endregion
     }
 }
-//Exercises
-//Starting point - together
-//1.  Redo Exercises from Project Delegate1 using Lambda Expressions in all Array.ForEach(), Array.FindAll(),
+//Exercises Delegates => Lamda Expressions
+//1.  Go through the code above and try to understand the usage of delegates
+//2.  Redo Exercises from in region Exercise 2 using Lambda Expressions in all Array.ForEach(), Array.FindAll(),
 //    Array.Find(), Array.FindLast()
-//2.  Use Array.ForEach() and Lambda (with a captured variable count) to calculate the sum of all the
+//3.  Use Array.ForEach() and Lambda (with a captured variable count) to calculate the sum of all the
 //    elements in the array numbers
-//3.  Use Array.ForEach() and Lambda (with a captured variable) to find the largest element in the array numbers
-
-
-
+//4.  Use Array.ForEach() and Lambda (with a captured variable) to find the largest element in the array numbers
