@@ -15,8 +15,8 @@ namespace Tasks0
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Console.WriteLine($"{Message}{i} from Thread1");
-                    Thread.Sleep(2000);
+                    Console.WriteLine($"{Message}{i} from t1");
+                    Task.Delay(2000).Wait();
                 }
             });
             t1.Wait();
@@ -26,8 +26,8 @@ namespace Tasks0
                 for (int i = 0; i < 10; i++)
                 {
 
-                    Console.WriteLine($"{Message}{i} from Thread2");
-                    Thread.Sleep(1000);
+                    Console.WriteLine($"{Message}{i} from t2");
+                    Task.Delay(1000).Wait();
                 }
             });
             t2.Wait();
@@ -36,8 +36,8 @@ namespace Tasks0
             {
                 for (int i = 0; i < 15; i++)
                 {
-                    Console.WriteLine($"{Message}{i} from Thread3");
-                    Thread.Sleep(500);
+                    Console.WriteLine($"{Message}{i} from t3");
+                    Task.Delay(500).Wait(); ;
                 }
             });
             t3.Wait();

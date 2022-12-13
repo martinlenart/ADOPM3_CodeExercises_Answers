@@ -6,12 +6,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             try
             {
                 string Message = "Martins hello";
-                var t1 = await Task.Run(() =>
+                var t1 = Task.Run(() =>
                 {
                     for (int i = 0; i < 5; i++)
                     {
@@ -21,7 +21,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                     return "Task1 has completed";
                 });
-                Console.WriteLine(t1);
+                Console.WriteLine(t1.Result);
 
                 var t2 = Task.Run(() =>
                 {
@@ -30,10 +30,17 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                         Console.WriteLine($"{Message}{i} from Task2");
                         Task.Delay(1000);
-                    }
-                });
+                        if (i == 5)
+                        {
+                            //throw new Exception("Task2 has faulted");
+                        }
 
-                var t3 = await Task.Run(() =>
+                    }
+                    return "Task2 has completed";
+                });
+                Console.WriteLine(t2.Result);
+
+                var t3 = Task.Run(() =>
                 {
                     for (int i = 0; i < 15; i++)
                     {
@@ -46,9 +53,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     }
                     return "Task3 completed";
                 });
-                Console.WriteLine(t3);
-
-                await t2;
+                Console.WriteLine(t3.Result);
             }
             catch (Exception ex)
             {
