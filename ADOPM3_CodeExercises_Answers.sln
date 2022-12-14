@@ -49,6 +49,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks0", "Tasks0\Tasks0.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{FB746DF0-9167-4733-B3AD-D126F7CB1435}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streams0", "Streams0\Streams0.csproj", "{EB9F7C72-F3D0-4C3A-A268-2B4752783810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization0", "Serialization0\Serialization0.csproj", "{83692A8A-8176-4005-9AB2-AA9295645174}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +151,14 @@ Global
 		{FB746DF0-9167-4733-B3AD-D126F7CB1435}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB746DF0-9167-4733-B3AD-D126F7CB1435}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB746DF0-9167-4733-B3AD-D126F7CB1435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB9F7C72-F3D0-4C3A-A268-2B4752783810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB9F7C72-F3D0-4C3A-A268-2B4752783810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB9F7C72-F3D0-4C3A-A268-2B4752783810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB9F7C72-F3D0-4C3A-A268-2B4752783810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83692A8A-8176-4005-9AB2-AA9295645174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83692A8A-8176-4005-9AB2-AA9295645174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83692A8A-8176-4005-9AB2-AA9295645174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83692A8A-8176-4005-9AB2-AA9295645174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
