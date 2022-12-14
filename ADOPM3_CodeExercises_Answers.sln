@@ -45,7 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IEnumerable", "IEnumerable\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq_ShallowVsDeepCopy", "Linq_ShallowVsDeepCopy\Linq_ShallowVsDeepCopy.csproj", "{E49EF6B0-2302-4DA3-A7DF-5D1F6BE38C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks0", "Tasks0\Tasks0.csproj", "{98232C6A-98E4-4E8D-A042-F1E3330B0A85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks0", "Tasks0\Tasks0.csproj", "{98232C6A-98E4-4E8D-A042-F1E3330B0A85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{FB746DF0-9167-4733-B3AD-D126F7CB1435}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{98232C6A-98E4-4E8D-A042-F1E3330B0A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98232C6A-98E4-4E8D-A042-F1E3330B0A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98232C6A-98E4-4E8D-A042-F1E3330B0A85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB746DF0-9167-4733-B3AD-D126F7CB1435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB746DF0-9167-4733-B3AD-D126F7CB1435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB746DF0-9167-4733-B3AD-D126F7CB1435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB746DF0-9167-4733-B3AD-D126F7CB1435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
