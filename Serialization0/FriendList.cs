@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Text.Json;
 
 namespace Serialization0
 {
     public class FriendList
     {
-        public  List<Friend> myFriends = new List<Friend>();
+        //Note myFriends { get; set; } - it needs to be a public property for Json serialization
+        public List<Friend> myFriends { get; set; } = new List<Friend>();
         public Friend this[int idx]=> myFriends[idx];
 
         public override string ToString()
@@ -53,6 +55,23 @@ namespace Serialization0
             using (Stream s = File.OpenRead(fname(xmlFileName)))
             {
                 flist = (FriendList)xs.Deserialize(s);
+                return flist;
+            }
+        }
+        public void SerializeJson(string jsonFileName)
+        {
+            string sJson = JsonSerializer.Serialize<FriendList>(this, new JsonSerializerOptions() { WriteIndented = true });
+ 
+            using (Stream s = File.Create(fname(jsonFileName)))
+            using (TextWriter writer = new StreamWriter(s))
+                writer.Write(sJson);
+        }
+        public static FriendList DeSerializeJson(string jsonFileName)
+        {
+            using (Stream s = File.OpenRead(fname(jsonFileName)))
+            using (TextReader reader = new StreamReader(s))
+            {
+                var flist = JsonSerializer.Deserialize<FriendList>(reader.ReadToEnd());
                 return flist;
             }
         }

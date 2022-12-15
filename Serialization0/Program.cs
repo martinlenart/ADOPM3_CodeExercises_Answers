@@ -13,9 +13,16 @@ namespace Serialization0 // Note: actual namespace depends on the project name.
             Console.WriteLine(friendsToDisk.myFriends.Count);
 
             friendsToDisk.SerializeXml("Friends.xml");
-            var newFriends = FriendList.DeSerializeXml("Friends.xml");
+            var xmlFriends = FriendList.DeSerializeXml("Friends.xml");
 
-            Console.WriteLine(newFriends.myFriends.Count);
+            Console.WriteLine(xmlFriends.myFriends.Count);
+
+            friendsToDisk.SerializeJson("Friends.json");
+            var jsonFriends = FriendList.DeSerializeJson("Friends.json");
+
+            Console.WriteLine(jsonFriends.myFriends.Count);
         }
     }
 }
+//Exercise:
+//1. Implement SerializeXml(), DeSerializeXml(), SerializeJson(), and DeSerializeJson()
