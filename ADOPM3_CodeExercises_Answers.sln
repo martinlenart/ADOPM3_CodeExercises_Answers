@@ -23,8 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trains", "Trains\Trains.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Async1", "Async1\Async1.csproj", "{38129839-931A-451A-B70F-7A2BE9F51778}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate2", "Delegate2\Delegate2.csproj", "{37F2222D-53AC-42BB-98E3-1C0B92BBF350}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lambda1", "Lambda1\Lambda1.csproj", "{98C0BB97-2A09-4470-BDCC-3A48DBB16A20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq_Orders", "Linq_Orders\Linq_Orders.csproj", "{F2C49BAC-D4B5-4891-8630-01F0F8C9AD0A}"
@@ -34,8 +32,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads", "Threads\Threads.csproj", "{94B76CDA-BF22-4C20-BF39-E22BEFDC024B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks1", "Tasks1\Tasks1.csproj", "{F4F7819C-1AD1-40BB-85FE-DB6733E5BB74}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate0", "Delegate0\Delegate0.csproj", "{6641AA09-9792-4C10-89E8-E6C4286F02B3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lambda0", "Lambda0\Lambda0.csproj", "{B828C1C8-5D99-4591-884A-36E22C5DE94B}"
 EndProject
@@ -47,11 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq_ShallowVsDeepCopy", "L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks0", "Tasks0\Tasks0.csproj", "{98232C6A-98E4-4E8D-A042-F1E3330B0A85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{FB746DF0-9167-4733-B3AD-D126F7CB1435}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{FB746DF0-9167-4733-B3AD-D126F7CB1435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streams0", "Streams0\Streams0.csproj", "{EB9F7C72-F3D0-4C3A-A268-2B4752783810}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Streams0", "Streams0\Streams0.csproj", "{EB9F7C72-F3D0-4C3A-A268-2B4752783810}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization0", "Serialization0\Serialization0.csproj", "{83692A8A-8176-4005-9AB2-AA9295645174}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization0", "Serialization0\Serialization0.csproj", "{83692A8A-8176-4005-9AB2-AA9295645174}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,10 +95,6 @@ Global
 		{38129839-931A-451A-B70F-7A2BE9F51778}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38129839-931A-451A-B70F-7A2BE9F51778}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38129839-931A-451A-B70F-7A2BE9F51778}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37F2222D-53AC-42BB-98E3-1C0B92BBF350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37F2222D-53AC-42BB-98E3-1C0B92BBF350}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37F2222D-53AC-42BB-98E3-1C0B92BBF350}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37F2222D-53AC-42BB-98E3-1C0B92BBF350}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98C0BB97-2A09-4470-BDCC-3A48DBB16A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98C0BB97-2A09-4470-BDCC-3A48DBB16A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98C0BB97-2A09-4470-BDCC-3A48DBB16A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -123,10 +115,6 @@ Global
 		{F4F7819C-1AD1-40BB-85FE-DB6733E5BB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4F7819C-1AD1-40BB-85FE-DB6733E5BB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4F7819C-1AD1-40BB-85FE-DB6733E5BB74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6641AA09-9792-4C10-89E8-E6C4286F02B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6641AA09-9792-4C10-89E8-E6C4286F02B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6641AA09-9792-4C10-89E8-E6C4286F02B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6641AA09-9792-4C10-89E8-E6C4286F02B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B828C1C8-5D99-4591-884A-36E22C5DE94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B828C1C8-5D99-4591-884A-36E22C5DE94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B828C1C8-5D99-4591-884A-36E22C5DE94B}.Release|Any CPU.ActiveCfg = Release|Any CPU

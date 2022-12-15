@@ -7,7 +7,7 @@ namespace Delegate1
     {
         static void Main(string[] args)
         {
-            #region Exercises 1-3
+            #region Starting point
             int[] numbers = new int[20];
             string[] cities = new string[20];
 
@@ -23,7 +23,7 @@ namespace Delegate1
             WriteLists(numbers, cities);
             #endregion
 
-            #region Exercises 4-7
+            #region Exercises 1-4
             Console.WriteLine("Delegates I Exercises");
             Console.WriteLine($"\n{nameof(numbers)} output by delegate");
             Array.ForEach(numbers, WriteInts);
@@ -36,7 +36,7 @@ namespace Delegate1
             Array.ForEach(cities, WriteItem);
             #endregion
 
-            #region Exercises 8-9
+            #region Exercises 5-6
             Console.WriteLine("\nDelegates II Exercises");
             var evenlist = Array.FindAll(numbers, IsEven);
             Array.ForEach(evenlist, WriteItem);
@@ -45,14 +45,14 @@ namespace Delegate1
             Array.ForEach(Array.FindAll(cities, IsLongName), WriteItem);
             #endregion
 
-            #region Exercises 10-11
+            #region Exercises 7-8
             Console.WriteLine("\nDelegates III Exercises");
             Console.WriteLine(Array.Find(numbers, IsLargeNumber));
             Console.WriteLine(Array.FindLast(cities, IsLongestName));
             #endregion
         }
 
-        #region Exercises 1-3
+        #region Starting point
         static void WriteLists(int[] _numbers, string[] _cities)
         {
 
@@ -67,7 +67,7 @@ namespace Delegate1
         }
         #endregion
 
-        #region Exercises 4-7
+        #region Exercises 1-4
         static void WriteInts(int myInt)
         {
             Console.WriteLine(myInt);
@@ -82,12 +82,12 @@ namespace Delegate1
         }
         #endregion
 
-        #region Exercises 8-9
+        #region Exercises 5-6
         public static bool IsEven(int item) => item % 2 == 0;
         public static bool IsLongName(string item) => item.Length > 6;
         #endregion
 
-        #region Exercises 10-11
+        #region Exercises 7-8
         static bool IsLargeNumber(int item) => item > 500;
         static bool IsLongestName(string item) => item.Length > 8;
         #endregion
@@ -95,25 +95,21 @@ namespace Delegate1
     }
 }
 //Exercises
-//Starting point - together
-//1.  Create an int[] numbers, with 20 elements. Initialize each element with a random value between 100 and 1000
-//2.  Create an string[] cities with 20 city names randomly assigned
-//3.  Write a method that takes the two lists as parameters and print them out to the console using foreach loops.
 
 //Delegates I
-//4.  Explore Array.ForEach and write a delegate that prints numbers to the console using Array.ForEach()
-//5.  Explore Array.ForEach and write a delegate that prints cities to the console using Array.ForEach()
-//6.  Use Generics <T> to write one delegate that prints T[] to the console using Array.ForEach()
-//7.  Print out both lists using the Method from 6.
+//1.  Explore Array.ForEach and write a delegate that prints numbers to the console using Array.ForEach()
+//2.  Explore Array.ForEach and write a delegate that prints cities to the console using Array.ForEach()
+//3.  Use Generics <T> to write one delegate that prints T[] to the console using Array.ForEach()
+//4.  Print out both lists using the Method from 6.
 
 //Delegates II
-//8.  Explore Array.FindAll() and write a delegate returns an int[] of all even numbers.
+//5.  Explore Array.FindAll() and write a delegate returns an int[] of all even numbers.
 //    Print out the new array using the pattern from 4 - 6
-//9.  Explore Array.FindAll() and write a delegate returns an string[] of all cities with a name with more than 6 letters.
+//6.  Explore Array.FindAll() and write a delegate returns an string[] of all cities with a name with more than 6 letters.
 //    Print out the new array using the pattern from 4 - 6
 
 //Delegates III
-//10. Explore Array.Find() and write a delegate that finds the first number in numbers > 500. Print out the number
-//11. Explore Array.FindLast() and write a delegate that finds the last city in the cities with a name longer than 8 letters
+//7. Explore Array.Find() and write a delegate that finds the first number in numbers > 500. Print out the number
+//8. Explore Array.FindLast() and write a delegate that finds the last city in the cities with a name longer than 8 letters
 
 
