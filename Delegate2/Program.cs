@@ -1,69 +1,58 @@
 ﻿// See https://aka.ms/new-console-template for more information
+//Console.WriteLine("Hello, World!");
 
-Action<int>[] action_tests = new Action<int>[3];
+using System;
 
-action_tests[0] = i => Console.WriteLine($"Hello {i}");
-action_tests[0] += i => Console.WriteLine($"Goodbye {i}");
-action_tests[0] += i => Console.WriteLine($"Hello again {i}");
-action_tests[1] = i => Console.WriteLine($"Hello {i}");
-action_tests[1] += i => Console.WriteLine($"Goodbye {i}");
-action_tests[1] += i => Console.WriteLine($"Hello again {i}");
-action_tests[2] = i => Console.WriteLine($"Hello {i}");
-action_tests[2] += i => Console.WriteLine($"Goodbye {i}");
-action_tests[2] += i => Console.WriteLine($"Hello again {i}");
-
-Console.WriteLine("Action Delegates");
-for (int i = 0; i < action_tests.Length; i++)
+namespace Delegate2 // Note: actual namespace depends on the project name.
 {
-    action_tests[i](i);                 //All three Action execute
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            var friends = FriendList.Factory.CreateRandom(100);
+ 
+            Console.WriteLine("\nHello to Finland");
+            friends.SayHello(HelloFinland);
+
+            Console.WriteLine("\nHello to Gavle");
+            friends.SayHello(HelloGavle);
+
+            Console.WriteLine("\nHello to Scandinavia");
+            friends.SayHello(HelloScandinavia);
+
+            var gavleOnly = FriendList.Factory.CreateRandom(100, AllGavle);
+
+        }
+
+        public static void HelloFinland(Friend friend)
+        {
+        }
+        public static void HelloGavle(Friend friend)
+        {
+        }
+        public static void HelloScandinavia(Friend friend)
+        {
+        }
+
+
+        public static Friend AllJohn(Friend orgFriend)
+        {
+            orgFriend.FirstName = "John";
+            return orgFriend;
+        }
+
+        public static Friend AllGavle(Friend orgFriend)
+        {
+            var newAddress = orgFriend.Address;
+            newAddress.City = "Gavle";
+
+            orgFriend.Address = newAddress;
+            return orgFriend;
+        }
+    }
 }
 
-Console.WriteLine("\nFunc Delegates");
-
-
-Func<int, string>[] func_tests = new Func<int, string>[3];
-var Message = "My Message";
-
-func_tests[0] = i =>
-{
-    Console.WriteLine($"Hello {i} {Message} executed but no return value");
-    return $"Hello {i}";
-};
-func_tests[0] += (int i) =>
-{
-    Console.WriteLine($"Goodbye {i} executed but no return value");
-    return $"Goodbye {i}";
-};
-func_tests[0] += i => $"Hello again {i}";
-
-func_tests[1] = myfunc0;
-func_tests[1] += myfunc1;
-func_tests[1] += myfunc2; //last return string
-func_tests[2] = myfunc0;
-func_tests[2] += myfunc1;
-func_tests[2] += myfunc2;//last return string
-for (int i = 0; i < func_tests.Length; i++)
-{
-    Console.WriteLine(func_tests[i](i));  //All three Func execute but only string from last execute is returned 
-}
-
-string myfunc0(int i)
-{
-    Console.WriteLine($"Hello {i} {Message} executed but no return value");
-    return $"Hello {i}"; 
-}
-
-string myfunc1(int i)
-{
-    Console.WriteLine($"Goodbye {i} executed but no return value");
-    return $"Goodbye {i}"; 
-}
-
-string myfunc2(int i)
-{
-    Console.WriteLine($"Hello again {i} executed AND value returned");
-    return $"Hello again {i}"; 
-}
-
-
-
+//Exercise
+// 1. Go through the creation of gavleOnly List and understand the process when the delegate is invoked
+// 2. Implement the 3 Hello delegates so you say Hello to the appropriate persons

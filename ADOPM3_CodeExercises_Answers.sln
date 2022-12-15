@@ -49,6 +49,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Streams0", "Streams0\Stream
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization0", "Serialization0\Serialization0.csproj", "{83692A8A-8176-4005-9AB2-AA9295645174}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate2", "Delegate2\Delegate2.csproj", "{0A65ECA4-D5EE-47D0-A911-EDC225DC5415}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{83692A8A-8176-4005-9AB2-AA9295645174}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83692A8A-8176-4005-9AB2-AA9295645174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83692A8A-8176-4005-9AB2-AA9295645174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A65ECA4-D5EE-47D0-A911-EDC225DC5415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A65ECA4-D5EE-47D0-A911-EDC225DC5415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A65ECA4-D5EE-47D0-A911-EDC225DC5415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A65ECA4-D5EE-47D0-A911-EDC225DC5415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
