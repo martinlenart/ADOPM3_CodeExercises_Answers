@@ -19,7 +19,7 @@ namespace Tasks0
                     Task.Delay(2000).Wait();
                 }
             });
-            t1.Wait();
+            //t1.Wait();
 
             var t2 = Task.Run(() =>
             {
@@ -30,7 +30,7 @@ namespace Tasks0
                     Task.Delay(1000).Wait();
                 }
             });
-            t2.Wait();
+            //t2.Wait();
 
             var t3 = Task.Run(() =>
             {
@@ -40,7 +40,7 @@ namespace Tasks0
                     Task.Delay(500).Wait(); ;
                 }
             });
-            t3.Wait();
+            //t3.Wait();
 
             Task.WaitAll(t1, t2, t3);
 
