@@ -31,7 +31,7 @@ namespace Delegate1
             Array.ForEach(cities, WriteString);
 
             Console.WriteLine($"\n{nameof(numbers)} output by generic delegate");
-            Array.ForEach(numbers, WriteItem);
+            Array.ForEach(numbers, WriteItem<int>);
             Console.WriteLine($"\n{nameof(cities)} output by generic delegate");
             Array.ForEach(cities, WriteItem);
             #endregion
