@@ -12,10 +12,17 @@ namespace Linq_Orders_Customers
             collection.ToList().ForEach(item => Console.WriteLine(item));
         }
     }
+
     public class OrderCustomer
     {
-        public Customer cus { get; set; }
-        public Order ord { get; set; }
+        public IOrder order { get; set; }
+        public ICustomer customer { get; set; }
+    }
+
+    public class CustomerOrders
+    {
+        public ICustomer customer { get; set; }
+        public IEnumerable<IOrder> orders { get; set; }
     }
 
     class Program
@@ -75,14 +82,16 @@ namespace Linq_Orders_Customers
             orders.OrderByDescending(order => order.Value).Take(5).Print();
 
             Console.WriteLine("\ntop 5 Orders with customer joined in via Join:");
-            var orderCustomer = orders.Join(customers, o => o.CustomerID, c => c.CustomerID, (o, c) => new { o, c });
-            orderCustomer.OrderByDescending(oc => oc.o.Value).Take(5).Print();
+            var orderCustomer = orders.Join(customers, o => o.CustomerID, c => c.CustomerID, 
+                (o, c) => new OrderCustomer{ order = o, customer = c });
+            orderCustomer.OrderByDescending(oc => oc.order.Value).Take(5).Print();
 
             Console.WriteLine("\ntop 5 Customers from order value via GroupJoin:");
-            var CustomerOrders = customers.GroupJoin(orders, c => c.CustomerID, o => o.CustomerID, (cust, orders) => new { cust, orders });
+            var CustomerOrders = customers.GroupJoin(orders, c => c.CustomerID, o => o.CustomerID, 
+                (cust, orders) => new CustomerOrders{ customer = cust, orders = orders });
             foreach (var co in CustomerOrders.OrderByDescending(co => co.orders.Sum(o => o.Value)).Take(5))
             {
-                Console.WriteLine($"Cust: {co.cust.CustomerID}, Ordercount: {co.orders.Count()}, OrderValue: {co.orders.Sum(o => o.Value):C2}");
+                Console.WriteLine($"Cust: {co.customer.CustomerID}, Ordercount: {co.orders.Count()}, OrderValue: {co.orders.Sum(o => o.Value):C2}");
             }
         }
     }
@@ -94,6 +103,9 @@ namespace Linq_Orders_Customers
 //3.    Antalet kunder med ett efternamn som slutar på 'son'
 
 //4.    Antalet ordrar och totalt ordervärde av de 5 största ordrarna
-//5.    Använd Join för att lista kund och ordervärde för de 5 största ordrarna
+//5.    Använd Join för att lista kund och ordervärde för de 5 största ordrarna.
+//          Hint: använd Join för att skapa en lista av  OrderCustomer
 
 //6.    Använd GroupJoin för att lista de 5 största kunderna baserat på ordervärde
+//          Hint: använd GroupJoin för att skapa en lista av  CustomerOrders
+
