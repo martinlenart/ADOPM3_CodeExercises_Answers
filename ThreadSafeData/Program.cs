@@ -36,13 +36,16 @@ namespace ThreadSafeData
                 var rnd = new Random();
                 for (int i = 0; i < 1000; i++)
                 {
+                    //Write Data to Vehicle, "ABC 123", "Kalle Anka"
                     myCar.SetData("ABC 123", "Kalle Anka");
 
                     //introduce some system delay
                     //Task.Delay(rnd.Next(1, 5));//.Wait();
 
+                    //Read Data from Vehicle
                     (string regNr, string owner) = myCar.GetData();
-                    
+
+                    //Verify data consistency - give error if not consistent                   
                     if ((regNr, owner) != ("ABC 123", "Kalle Anka") && (regNr, owner) != ("HKL 556", "Musse Pigg")) 
                         Console.WriteLine($"Oops from t1, Very Bad! {regNr} {owner}");
                 }
@@ -54,13 +57,16 @@ namespace ThreadSafeData
                 var rnd = new Random();
                 for (int i = 0; i < 1000; i++)
                 {
+                    //Write Data to Vehicle, "HKL 556", "Musse Pigg"
                     myCar.SetData("HKL 556", "Musse Pigg");
 
                     //introduce some system delay
                     //Task.Delay(rnd.Next(1, 5));//.Wait();
 
+                    //Read Data from Vehicle
                     (string regNr, string owner) = myCar.GetData();
 
+                    //Verify data consistency - give error if not consistent                   
                     if ((regNr, owner) != ("ABC 123", "Kalle Anka") && (regNr, owner) != ("HKL 556", "Musse Pigg"))
                         Console.WriteLine($"Oops from t2, Very Bad! {regNr} {owner}");
                 }
@@ -72,3 +78,10 @@ namespace ThreadSafeData
         }
     }
 }
+/*  Exercise
+    1. Make class Vehicle Thread safe using lock(...)
+    2.  - Have task t1 write 1000 times "ABC 123", "Kalle Anka" to myCar
+        - Have task t2 write 1000 times "ABC 123", "HKL 556", "Musse Pigg"
+        - Verify data consistency
+        - Discuss in the group what is data consistency in case of class Vehicle. Is your code living up to it?
+*/
