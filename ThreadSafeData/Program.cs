@@ -1,77 +1,74 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ThreadSafeData
 {
     class Program
     {
         //Thread Safe Datastructure
-        public class TSafeData
+        public class Vehicle
         {
             object _locker = new object();
-            int iSafeResult1 = 0;
-            int iSafeResult2 = 0;
+            string RegistrationNumber;
+            string Owner;
 
-            public void SetData(int data1, int data2)
+            public void SetData(string regNr, string owner)
             {
                 lock (_locker)
                 {
-                    iSafeResult1 = data1;
-                    iSafeResult2 = data2;
+                    RegistrationNumber = regNr;
+                    Owner = owner;
                 }
             }
-            public void GetData(out int data1, out int data2)
+            public (string regNr, string owner) GetData()
             {
-                lock (_locker)
-                {
-                    data1 = iSafeResult1;
-                    data2 = iSafeResult2;
-                }
+                lock (_locker) { return (RegistrationNumber, Owner); }
             }
         }
         static void Main(string[] args)
         {
-            var mySafeData = new TSafeData();
+            var myCar = new Vehicle();
+            var rnd = new Random();
 
-            new Thread((arg) =>
+            var t1 = Task.Run(() =>
             {
-                var localSafeData = (TSafeData)arg;
-
                 var rnd = new Random();
-                for (int i = 0; i < 500; i++)
+                for (int i = 0; i < 1000; i++)
                 {
-                    //Write data in a threadsafe manner
-                    localSafeData.SetData(1111, 1111);
-                    Console.Write("1");
+                    myCar.SetData("ABC 123", "Kalle Anka");
 
-                    //Just to verify data consistency
-                    Thread.Sleep(rnd.Next(1, 50));
-                    localSafeData.GetData(out int i1, out int i2);
+                    //introduce some system delay
+                    //Task.Delay(rnd.Next(1, 5));//.Wait();
 
-                    if (i1 != i2)
-                        Console.WriteLine("Safe mismatch");
-                }             
-            }).Start(mySafeData);
-
-            new Thread((arg) =>
-            {
-                var localSafeData = (TSafeData)arg;
-
-                var rnd = new Random();
-                for (int i = 0; i < 500; i++)
-                {
-                    //Write data in a threadsafe manner
-                    localSafeData.SetData(2222, 2222);
-                    Console.Write("2");
-
-                    //Just to verify data consistency
-                    Thread.Sleep(rnd.Next(1, 50));
-                    localSafeData.GetData(out int i1, out int i2);
-
-                    if (i1 != i2)
-                        Console.WriteLine("Safe mismatch");
+                    (string regNr, string owner) = myCar.GetData();
+                    
+                    if ((regNr, owner) != ("ABC 123", "Kalle Anka") && (regNr, owner) != ("HKL 556", "Musse Pigg")) 
+                        Console.WriteLine($"Oops from t1, Very Bad! {regNr} {owner}");
                 }
-            }).Start(mySafeData);
+                Console.WriteLine("t1 Finished");
+            });
+
+            var t2 = Task.Run(() =>
+            {
+                var rnd = new Random();
+                for (int i = 0; i < 1000; i++)
+                {
+                    myCar.SetData("HKL 556", "Musse Pigg");
+
+                    //introduce some system delay
+                    //Task.Delay(rnd.Next(1, 5));//.Wait();
+
+                    (string regNr, string owner) = myCar.GetData();
+
+                    if ((regNr, owner) != ("ABC 123", "Kalle Anka") && (regNr, owner) != ("HKL 556", "Musse Pigg"))
+                        Console.WriteLine($"Oops from t2, Very Bad! {regNr} {owner}");
+                }
+                Console.WriteLine("t2 Finished");
+            });
+
+            Task.WaitAll(t1, t2);
+            Console.WriteLine("All Finished");
         }
     }
 }
