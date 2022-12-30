@@ -55,7 +55,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event1", "Event1\Event1.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2", "Task2\Task2.csproj", "{DF6F707E-D972-4BAD-BD7B-E2F99725E389}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event2", "Event2\Event2.csproj", "{DAA275A5-62CA-485B-8ACF-88D3AFA404B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event2", "Event2\Event2.csproj", "{DAA275A5-62CA-485B-8ACF-88D3AFA404B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async", "Async\Async.csproj", "{30102614-388E-415E-9194-A9BE9C57DFDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{DAA275A5-62CA-485B-8ACF-88D3AFA404B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAA275A5-62CA-485B-8ACF-88D3AFA404B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAA275A5-62CA-485B-8ACF-88D3AFA404B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30102614-388E-415E-9194-A9BE9C57DFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30102614-388E-415E-9194-A9BE9C57DFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30102614-388E-415E-9194-A9BE9C57DFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30102614-388E-415E-9194-A9BE9C57DFDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
