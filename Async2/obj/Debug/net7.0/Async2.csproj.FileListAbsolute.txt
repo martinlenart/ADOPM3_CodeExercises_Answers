@@ -1,0 +1,15 @@
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/bin/Debug/net7.0/Async2
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/bin/Debug/net7.0/Async2.deps.json
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/bin/Debug/net7.0/Async2.runtimeconfig.json
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/bin/Debug/net7.0/Async2.dll
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/bin/Debug/net7.0/Async2.pdb
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.csproj.AssemblyReference.cache
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.AssemblyInfoInputs.cache
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.AssemblyInfo.cs
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.csproj.CoreCompileInputs.cache
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.dll
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/refint/Async2.dll
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.pdb
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/Async2.genruntimeconfig.cache
+/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/Debug/net7.0/ref/Async2.dll
