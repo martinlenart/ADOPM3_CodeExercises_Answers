@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/Async2.csproj",
+      "projectUniqueName": "/Users/Martin/Development/Projects/Advanced_OOP_Nov_2023/CSharp Part/Module3/ADOPM3_CodeExercises_Answers/Async2/Async2.csproj",
       "projectName": "Async2",
-      "projectPath": "/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/Async2.csproj",
+      "projectPath": "/Users/Martin/Development/Projects/Advanced_OOP_Nov_2023/CSharp Part/Module3/ADOPM3_CodeExercises_Answers/Async2/Async2.csproj",
       "packagesPath": "/Users/Martin/.nuget/packages/",
-      "outputPath": "/Users/Martin/Development/Projects/ADOPM3_CodeExercises_Answers/Async2/obj/",
+      "outputPath": "/Users/Martin/Development/Projects/Advanced_OOP_Nov_2023/CSharp Part/Module3/ADOPM3_CodeExercises_Answers/Async2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/Martin/.nuget/NuGet/NuGet.Config"
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
       }
     }
   }

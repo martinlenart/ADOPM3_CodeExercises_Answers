@@ -68,11 +68,11 @@
         }
 
         //Eventhandlers
-        static public void ItemAddedHandler<T> (object? sender, T item)
+        static public void ItemAddedHandler<T> (object sender, T item)
         {
             Console.WriteLine($"{item} added");
         }
-        static public void ItemRemovedHandler<T>(object? sender, T item)
+        static public void ItemRemovedHandler<T>(object sender, T item)
         {
             Console.WriteLine($"{item} removed");
         }

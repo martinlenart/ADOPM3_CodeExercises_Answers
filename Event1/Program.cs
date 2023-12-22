@@ -18,7 +18,7 @@ namespace Event1 // Note: actual namespace depends on the project name.
 
         //Declare your Eventhandler
         //Your code
-        private static void FriendList_CreationProgress(object? sender, int e)
+        private static void FriendList_CreationProgress(object sender, int e)
         {
             Console.WriteLine($"completed {e} number");
         }
